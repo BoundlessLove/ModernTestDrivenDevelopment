@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Driven Development Login</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h2>Web Calendar Login - a sample "JAVA, TOMCAT and MYSQL" application developed in redhat cloud to demonstrate DevOps in action</h2>
+<hr>
+<h3>Please use sample credentials below to sign in:-</h3>
+<br>Username: joshwilliams 
+<br>Password: Password1
+<hr>
+<br>
+<h3> SIGN IN: </h3>
+<!--<form name="login" action="MyServlet" method="get" onSubmit="return validateMyForm();">
+	<u1>
+		<br><label for="username">Username: </label>
+		<input type="text" ID="usernameTF" name="usernameTF" placeholder="enter username" required>
+		<br><label for="password">Password: </label>
+		<input type="password" ID="passwordTF" name="passwordTF" placeholder="enter password" required> 
+		<br>
+		<br>
+       <div class="g-recaptcha"
+            data-sitekey="6LffHyETAAAAAN-vHjs7KCoSVEWAArUEkcsRSLyS" required></div>
+		<br><input type="submit" ID="submit" value="Send" />
+	</u1>
+</form>-->
+
+<form th:action="@{/authenticate}" th:object="${credential}" method="post">
+    <div class="form-group">
+      <div class="form-group">
+        <label for="exampleInputUsername1"><b>Username</b></label>
+        <input type="text" th:field="*{username}" class="form-control" id="exampleInputUsername1" placeholder="Username">
+      </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1"><b>Password</b></label>
+      <input type="password" th:field="*{password}" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="g-recaptcha"
+            data-sitekey="6LffHyETAAAAAN-vHjs7KCoSVEWAArUEkcsRSLyS" required></div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</body>
+</html>
