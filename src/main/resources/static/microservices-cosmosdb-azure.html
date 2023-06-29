@@ -1,4 +1,6 @@
 <!doctype html>
+<!--<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">-->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -86,25 +88,32 @@ html, body {
 		<td>
 			<h2 id="toc"> Table of Contents</h2>
 			<br>
-			<br>1. <a href="#AzureCosmosDB">1. SCALABLE CLOUD HOSTED DB - COSMOS NOSQL</a> 
+			<br>1. <a href="#AzureCosmosDB"> SCALABLE CLOUD HOSTED DB - COSMOS NOSQL</a> 
 			<br>
-			<br>2. <a href="#MicroserverWrapperForDB">2. SPRING BOOT MICROSERVICE FOR DB CRUD OPERATIONS</a>
+			<br>2. <a href="#MicroserverWrapperForDB"> SPRING BOOT MICROSERVICE FOR DB CRUD OPERATIONS</a>
 			<br>
-			<br>3. <a href="#CloudHostedFrontEnd">3. CLOUD HOSTED SPRING BOOT FRONTEND</a>
+			<br>3. <a href="#CloudHostedFrontEnd"> CLOUD HOSTED SPRING BOOT FRONTEND</a>
 			<br>
 			<br>4. <a href="#HowFrontEndSpeaksToMicroservice">HOW DOES IT INTEGRATE</a>
 			<br>
-			<br> <a href="cicd.html" target="_top">Back to Top</a>
+			<br>5. <a href="#Future">FUTURE: CI / CD WITH GITHUB ACTIONS FOR WEB CALENDAR APPLICATION</a>
+			<br>
+			<br>6. <a href="#References">REFERENCES</a>
+			<br>
+			<br> <a href="microservices-cosmosdb-azure.html" target="_top">Back to Top</a>
 		</td>
 	</tr>
 	<tr>
 		<td>
 		<div class="header">
 			<h3 id="AzureCosmosDB">1. SCALABLE CLOUD HOSTED DB - COSMOS NOSQL</h3>
-				<h4>Cosmos SQL Database is a web scalable database, in my case hosted in Azure. When we need to scale upwards, with traditional SQL databases, we have to bump up the server RAM/CPU or manage data across servers painstakingly. With Azure Cosmos No SQL db, it is a distributed database and can easily be split apart across multiple data centers, making it highly scalable. The 'NoSQL' nature means that we can continue to use SQL queries to manage it. It manages this via maintaining a Partition id for each record. More later.</h4>
+				<br>Cosmos SQL Database is a web scalable database, in my case hosted in Azure. When we need to scale upwards, with traditional SQL databases, we have to bump up the server RAM/CPU or manage data across servers painstakingly. With Azure Cosmos No SQL db, it is a distributed database and can easily be split apart across multiple data centers, making it highly scalable. The 'NoSQL' nature means that we can continue to use SQL queries to manage it. It manages this via maintaining a Partition id for each record. More later.
 	            <br>
                 <br><div class="holder">
-                    <img src="images/clHsDB.jpg" class="width70"/>
+                    <img id="imgBanner" img src="/images/clHsDB.JPG" class="width70" alt="Azure Cosmos DB"/>
+					<!--<a th:href= "@{/images/clHsDB.jpg}" class="width70"></a>-->
+					<!--<img src='@Url.Content("~/images/clHsDB.jpg")' alt="Azure Cosmos DB" />-->
+					<!--<img src='src\main\resources\static\images\clHsDB.JPG' alt="Azure Cosmos DB" />-->
                 </div>
 
 				<br> <a href="#toc">Back to Table Of Contents</a>	
@@ -117,8 +126,10 @@ html, body {
 				<br> To reduce risk and improve usability an application with an api interface sits infront of Web Calendar's Cosmos DB. This is also hosted in the cloud. Below is a screenshot of its API interface being tested with Postman API tool.
 	            <br>
                 <br><div class="holder">
-                    <img src="images/ms-pt.jpg" class="width70"/>
-                </div>
+                    <!--<img src="/images/ms-pt.jpg" class="width70"/>-->
+					<!--<a th:href= "@{/images/ms-pt.jpg}" class="width70"></a>-->
+					<img id="imgBanner1" img src="/images/ms-pt.JPG" class="width70" alt="Microservice API for DB"/>
+				</div>
 				<br> <a href="#toc">Back to Table Of Contents</a>
 				<br>
 		</td>
@@ -128,19 +139,11 @@ html, body {
 			<h3 id="CloudHostedFrontEnd">3. CLOUD HOSTED SPRING BOOT FRONTEND</h3>
 				<br> As you can see from the url, this is a spring boot site hosted on Azure Cloud. Entire application is hosted entirely on cloud and code is in Git hub. Next step is to setup CI/CD with 'Github actions'!
 				<br>
-				<br><Strong>CI / CD WITH GITHUB ACTIONS</Strong>
+				<br>HOW WAS APP DEPLOYED TO AZURE?
 				<br>
-				<br>CONTINUOUS INTEGRATION
-				<br> 
-				<br>--coming--
-  				<br>
-  				<br>WITH CONTINUOUS INTEGRATION
-  				<br>
-  				<br>--coming--
-  				<br>	 
-  				<br><strong>WHAT IT MEANS TO THE WEB CALENDAR APPLICATION</strong>
-				<h4>This application is configured to auto-run Selenium tests using the TestNG framework right after the application build is triggered in Jenkins/Git Hub. Instant Quality feedback. </h4>
-				<br> <a href="#toc">Back to Table Of Contents</a>			 
+				<br> This was done via native functionality in VS Code IDE. Log into azure portal with your paid/trial account. In your spring boot application in VS code, under the 'targets' folder, there is a .jar/.war file. Right click it and select 'deploy to web app..' option. Follow prompts and it should deploy as shown below:
+				<br>
+				<br><img id="imgBanner2" img src="/images/VsCodeIdeDeployToAzure.JPG" class="width70" alt="How to deploy spring boot application to Azure"/>		
 		</td>
 	</tr>
 	<tr>	
@@ -160,12 +163,43 @@ html, body {
                 <br> <a href="#toc">Back to Table Of Contents</a>			 
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<h3 id="Future">5. FUTURE: CI / CD WITH GITHUB ACTIONS FOR WEB CALENDAR APPLICATION</h3>
+			<br><Strong></Strong>
+			<br>
+			<br>END GOAL - CONTINUOUS INTEGRATION/ CONTINOUS DEPLOYMENT (CI/CD) PLAN TO ACHIEVE Development Security Operations (DEVSECOPS) Paradigm via this exercise 
+			<br>
+			<br>DevOps is about integrating Development (includes 'quality assurance'/testing) and Operations in one seamless process with a focus on automation to make the process efficient as it is a lot of work if done manually (as in the past). It does that via CI/CD pipelines and agile processes for software development (see <a href="https://agilemanifesto.org/">Agile Manifesto</a> e.g. 'Responding to change over following a plan'. DevSecOps is a recent pradigm shift to that and is the future of IT. It is a system where security is inbuild in every step of development and deployment/operations. Continous monitoring (e.g. via code/automation following is setup - automated vulnerability scanning on nuget packages, alerts on availability cloud Infrastructure) in addtion to Devops automated testing provides continous and automated compliance enforcement. This helps with maintaining <strong>'Zero Trust'</strong>, where there is an assumption that malicius users can be anywhere and have access to our systems already, so our job is to limit the damage. 
+			<br>
+			<br><strong>DevSecOps pillars are Develop, Build, Test, Release & Deploy, and Runtime</strong> aimed at achieving a secure posture with the focus being on automation and integration going forward [1], inorder to make the process sustainable.
+			<br>
+			<br> <img id="imgBanner2" img src="/images/DevSecOps-Software-Lifecycle.png" class="width70" alt="DevSecOps - What is it?"/>
+			<br>
+			<br> This was achieved with Jenkins previously in 2016 (see link in footer for CI/CD). The objective is now to do that with the latest technology, particulary the cloud. Now our infrastructure is also in the cloud, so we provision that with our application via YAML pipelines. BICEP is Microsoft recommeneded language to provision infrastructure in Cloud (Infrastructure as Service). So, if I was to port this application to use CI/CD pipelines for cloud, I would first provision the infrastructure in Azure using BICEP via yaml pipelines (e.g. WebApp to host application and keyVault to store secrets). in Git hub actions with secrets in Azure Key Vault. I would then use the same pipleline to build the application code and deploy it in Azure. A part of this would also be to run my test automation suite. All this would happen via a click of a button and this would be a CI/CD pipeline. I will also do some automated vulnerability scanning as part of deployment and use containers. The reason is to include some Security aspects to my devops setup. <strong>Together, this would be a basic DevSecOps pipeline</strong>. I have done similar work before but I now plan to do this via free software in Git Hub actions. Please watch this space.
+			  <br>
+			  <br>WITH CONTINUOUS INTEGRATION
+			  <br>
+			  <br>--coming--
+			  <br>	 
+			  <br><strong>WHAT IT MEANS TO THE WEB CALENDAR APPLICATION</strong>
+			<br>In 2016, this application was configured to auto-run Selenium tests using the TestNG framework right after the application build is triggered in Jenkins to enable instant Quality feedback. At the end of my exercise, it will be on the first ladder of cloud based DevSecOps. 
+			<br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
 </table>
+
+<br>
+<h3 id="References">6. REFERENCES</h3>
+<br>1. United States (US) Government's Department of Defence (DOD).(2023). DOCS Mission - Guidelines for partners to maintain complaince. Source: https://public.cyber.mil/devsecops/   
+
 <br> <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">back </a> to Top of Page
 <br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">back </a> to details of Automation used
 <br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">back </a> to details of SOAP Web Services Integration
 <br> <a href="https://testdrivendevelopment.azurewebsites.net.jsp" target="_top">back</a> to login page 
-<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<br> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<br> For details of <u>Continuous integration using Jenkins</u> implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">here</a> </h5>
+
 <br>�Jay Sarna 2023     
   
 </div>
