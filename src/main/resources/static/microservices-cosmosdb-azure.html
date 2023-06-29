@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Jenkins</title>
+  
+<style>
+section{
+  display: block;
+}
+
+body, div {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#header {
+    background:orange;
+}
+#container {
+    background:blue;
+}
+#content {
+    background:pink;
+}
+#footer {
+    background:green;
+}
+
+.holder {   
+  width: auto;
+  display: inline-block;
+}
+
+.width70 {
+  width: 70%; 
+  height: auto;    
+}​
+
+.width30 {
+  width: 30%; 
+  height: auto;    
+}​
+
+.width100 {
+  width: 100%; 
+  height: auto;    
+}​
+
+.flex-init-setup {
+     display: -webkit-box;
+     display: -moz-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+ }
+ .flex-ppal-setup {
+     -webkit-flex-flow: column wrap;
+     -moz-flex-flow: column wrap;
+     flex-flow: column wrap;
+     -webkit-justify-content: center;
+     -moz-justify-content: center;
+     justify-content: center;
+ }
+ </style>
+
+</head>
+<body>
+
+<section id="container flex-init-setup flex-ppal-setup">
+<div class="header"> 
+<h1>Web Calendar - Modern Web Application specifics</h1>
+<br> <a href="http://localhost:8060">back</a> to login page 
+<br> <a href="http://localhost:8060/detail2.html">back</a> to details of Automation used
+<br> <a href="http://localhost:8060/integration.html">back</a> to details of SOAP Web Services Integration implemented
+<br> <a href=http://localhost:8060/microservices-cosmosdb-azure.html> to details of Azure hosted scalable microservice based setup of this site</a> </h5>
+
+<p></p>
+<br>
+<table border="1">
+	<tr>
+		<td>
+			<h2 id="toc"> Table of Contents</h2>
+			<br>
+			<br>1. <a href="#AzureCosmosDB">PURPOSE</a> 
+			<br>
+			<br>2. <a href="#MicroserverWrapperForDB">WHAT DOES IT INTEGRATE WITH</a>
+			<br>
+			<br>3. <a href="#CloudHostedFrontEnd">WHY IS IT IMPORTANT</a>
+			<br>
+			<br>4. <a href="#HowFrontEndSpeaksToMicroservice">HOW DOES IT INTEGRATE</a>
+			<br>
+			<br> <a href="cicd.html" target="_top">Back to Top</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<div class="header">
+			<h3 id="AzureCosmosDB">1. SCALABLE CLOUD HOSTED DB - COSMOS NOSQL</h3>
+				<h4>Cosmos SQL Database is a web scalable database, in my case hosted in Azure. When we need to scale upwards, with traditional SQL databases, we have to bump up the server RAM/CPU or manage data across servers painstakingly. With Azure Cosmos No SQL db, it is a distributed database and can easily be split apart across multiple data centers, making it highly scalable. The 'NoSQL' nature means that we can continue to use SQL queries to manage it. It manages this via maintaining a Partition id for each record. More later.</h4>
+	            <br>
+                <br><div class="holder">
+                    <img src="images/CloudHostedCosmosDb4WebCalendarApp.jpg" class="width70"/>
+                </div>
+
+				<br> <a href="#toc">Back to Table Of Contents</a>	
+		</div>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3  id="MicroserverWrapperForDB">2. SPRING BOOT MICROSERVICE FOR DB CRUD OPERATIONS</h3>
+				<br> To reduce risk and improve usability an application with an api interface sits infront of Web Calendar's Cosmos DB. This is also hosted in the cloud. Below is a screenshot of its API interface being tested with Postman API tool.
+	            <br>
+                <br><div class="holder">
+                    <img src="images/database-wrapper-cloud-hosted-spring-boot-microservice.jpg" class="width70"/>
+                </div>
+				<br> <a href="#toc">Back to Table Of Contents</a>
+				<br>
+		</td>
+	</tr>			
+	<tr>	
+		<td>
+			<h3 id="CloudHostedFrontEnd">3. CLOUD HOSTED SPRING BOOT FRONTEND</h3>
+				<br> As you can see from the url, this is a spring boot site hosted on Azure Cloud. Entire application is hosted entirely on cloud and code is in Git hub. Next step is to setup CI/CD with 'Github actions'!
+				<br>
+				<br><Strong>CI / CD WITH GITHUB ACTIONS</Strong>
+				<br>
+				<br>CONTINUOUS INTEGRATION
+				<br> 
+				<br>--coming--
+  				<br>
+  				<br>WITH CONTINUOUS INTEGRATION
+  				<br>
+  				<br>--coming--
+  				<br>	 
+  				<br><strong>WHAT IT MEANS TO THE WEB CALENDAR APPLICATION</strong>
+				<h4>This application is configured to auto-run Selenium tests using the TestNG framework right after the application build is triggered in Jenkins/Git Hub. Instant Quality feedback. </h4>
+				<br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3 id="HowFrontEndSpeaksToMicroservice">4. HOW DOES THE INTEGRATION WORK</h3>
+                <br>
+                <br>A. Integraton between Spring Boot Microservice and DB	
+                <br> It is seamlessly achieved via native features of java spring boot due to maven dependency called:  	
+				<br>
+                <br> - spring-cloud-azure-starter-data-cosmo
+                <br>
+                <br>
+                <br>B. Integration between Spring Boot Microservice and Spring Boot Thymeleaf based front end
+                <br> This is via simple API calls (see section 2.0 above).
+				<br>
+                <br>
+                <br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
+</table>
+<br> <a href="http://localhost:8060/cicd.html" target="_top">back </a> to Top of Page
+<br> <a href="http://localhost:8060/detail2.html" target="_top">back </a> to details of Automation used
+<br> <a href="http://localhost:8060/integration.html" target="_top">back </a> to details of SOAP Web Services Integration
+<br> <a href="http://localhost:8060.jsp" target="_top">back</a> to login page 
+<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=http://localhost:8060/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<br>�Jay Sarna 2023     
+  
+</div>
+</section>
+</body>
+</html>
+        

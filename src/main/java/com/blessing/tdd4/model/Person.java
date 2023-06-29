@@ -1,5 +1,8 @@
 package com.blessing.tdd4.model;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Person {
 
     private String name;
