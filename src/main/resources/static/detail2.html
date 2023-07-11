@@ -73,7 +73,7 @@ html, body {
 
 <section id="container flex-init-setup flex-ppal-setup">
 <div class="header"> 
-<h1>Web Calendar - Continuous Integration using Jenkins</h1>
+<h1>Web Calendar - Test Automation for in built quality in DevSecOps</h1>
 <br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page 
 <br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html">back</a> to details of Automation used
 <br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html">back</a> to details of SOAP Web Services Integration implemented
@@ -90,11 +90,13 @@ html, body {
 			<br>
 			<br>2. <a href="#whatItDoes">WHAT THIS APPLICATION DOES</a>
 			<br>
-			<br>3. <a href="#whyItIsImportant">WHY IS IT IMPORTANT?</a>
+			<br>3. <a href="#whyItIsImportant">WHY IS IT IMPORTANT? - Web Browser Automation via Cucumber-Java-Selenium</a>
 			<br>
-			<br>4. <a href="#ruby">TEST DRIVEN DEVELOPMENT (TDD) PERFORMED WITH RUBY PROGRAMMING LANGUAGE</a>
+			<br>4. <a href="#whyItIsImportant-Desktop">WHY IS IT IMPORTANT? - Desktop App Automation via Power Automate (Low Code)</a>
 			<br>
-			<br>5. <a href="#mobile">TDD ON MOBILE PLATFORM</a>
+			<br>5. <a href="#ruby">TEST DRIVEN DEVELOPMENT (TDD) PERFORMED WITH RUBY PROGRAMMING LANGUAGE</a>
+			<br>
+			<br>6. <a href="#mobile">TDD ON MOBILE PLATFORM</a>
 			<br>
 			<br><a href="#security">ASIDE: SECURITY IMPLEMENTED</a>
 			<br>
@@ -163,7 +165,7 @@ for logon, which has been fully implemented with added security:
 	</tr>			
 	<tr>	
 		<td>
-			<h3 id="whyItIsImportant">3. WHY IS IT IMPORTANT</h3>
+			<h3 id="whyItIsImportant">3. WHY IS IT IMPORTANT - Cucumber-Java-Selenium web browser automation</h3>
 				<h4>This application has been developed entirely using test driven development.</h4>
 				 The steps followed were to first develop the cucumber scripts to drive selenium tests followed by writing the 
 
@@ -213,7 +215,7 @@ monitored within seconds, by running the JUnit project.
 								<br> Cucumber can also be setup to produce a report like below: 
 								<br> Note: This report is from a different project:
 								<div class="holder">
-									<img src="images/CucumberTestResultsReport.png" class="width70"/>
+									<img src="images/CucumberTestResultsReport.png"/>
 							</div>
 					</tr>
 				</table>	
@@ -221,9 +223,21 @@ monitored within seconds, by running the JUnit project.
 				<br> <a href="#toc">Back to Table Of Contents</a>			 
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<h3 id="whyItIsImportant-Desktop">4. WHY IS IT IMPORTANT - Desktop App Automation via Power Automate (Low Code)</h3>
+			<p></p> Automating testing on web applications is just one aspect of quality assurance outcomes. Desktop applications is another major use case.
+			<br><br> So I created a desktop version of this web calendar application and automated its testing using Low code Microsoft Platform 'PowerAutomate':  	
+			<p></p>
+			<div class="holder">
+				<img src="images/DesktopApplicationTestAutomation.jpg"/>
+		</div>
+		</td>
+
+	</tr>
 	<tr>	
 		<td>
-			<h3 id="ruby">4. TEST DRIVEN DEVELOPMENT USING RUBY PROGRAMMING LANGUAGE</h3>
+			<h3 id="ruby">5. TEST DRIVEN DEVELOPMENT USING RUBY PROGRAMMING LANGUAGE</h3>
 				<h4>The same Selenium tests were also written and run using Ruby language on Ruby Mine IDE software</h4>
 				 The steps followed were:
 				<table>
@@ -274,7 +288,7 @@ monitored within seconds, by running the Capybara project.
 	</tr>
 	<tr>	
 		<td>
-			<h3 id="mobile">5. TEST DRIVEN DEVELOPMENT ON MOBILE PLATFORM</h3>
+			<h3 id="mobile">6. TEST DRIVEN DEVELOPMENT ON MOBILE PLATFORM</h3>
 				<h4>The same Selenium tests were also run on an android device with operating system version 5.1.1</h4>
 				 The steps followed to setup the tests for the mobile were:
 				<table>
