@@ -100,6 +100,8 @@ html, body {
 			<br>
 			<br>7. <a href="#nonfunctionaltesting">NON-FUNCTIONAL TESTING IMPLEMENTED</a>
 			<br>
+			<br>8. <a href="#useofframeworks">USE OF FRAMEWORKS</a>
+			<br>
 			<br> <a href="detail2.html" target="_top">Back to Top</a>
 		</td>
 	</tr>
@@ -383,6 +385,23 @@ Cucumber to drive selenium automation on mobile">
 				<br> <a href="#toc">Back to Table Of Contents</a>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<h3 id="useofframeworks"> 8. USE OF FRAMEWORKS</h3>
+				<p>Frameworks use to hold common code for reuse, across the test team</h4></p>
+				<br><i>Note: My framework is in java and is setup in a multi module (three) project in Eclipse. The three independant modules hold code, host code and test code, respectively:</i>
+				<br><br> 1. <i>Library module</i>: All the reusable code is in it. 
+				<br><br> 2. <i>Application module</i>: It is a Spring Boot microservice sits infront of library. Anyone with access to microservice can use its API to run Selenium tests without ever dealing with browsers.
+				<br><br> 3. <i>Cucumber-Junit module</i>: For testing puposes, my framework also has a module that consumes the Application Module.</i>
+				<br><br>Following is evidence of the Application Module working via API use in Postman:
+				<br><img src="images/SeleniumMicroservice.JPG" width="100%" alt="FrameworkPostman">     
+				<br><br>Following is evidence of Reusable code in library, which is available to application module as a service:
+				<br><img src="images/EvidenceOfFramework.JPG" width="100%" alt="FrameworkLibrary">     
+				<br> Note: The above screenshot also shows successful running of cucumber Junit tests in the bottom panel. The Github Repository is linked in Login page (though this one is a private repository). 
+
+				<br> <a href="#toc">Back to Table Of Contents</a>
+		</td>
+	</tr>	
 </table>
 <br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">back</a> to Top of Page
 <br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">back</a> to details of web services integration used
